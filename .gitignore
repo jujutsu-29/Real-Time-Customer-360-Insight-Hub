@@ -1,0 +1,107 @@
+# ==========================================
+# Global Gitignore for Java, React & Node Monorepo
+# ==========================================
+
+# --- System Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Node & React (Frontend) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.next/
+dist/
+build/
+out/
+.docusaurus/
+.cache/
+
+# --- Java & JVM (Backend) ---
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven build directory
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.nextVal
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle build directory
+.gradle/
+build/
+!src/**/build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# --- IDEs & Editors ---
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.history/
+
+# Eclipse
+.metadata/
+bin/
+tmp/
+.tmp/
+.classpath
+.project
+.settings/
+*.launch
+.factorypath
+
+# --- Docker & Infrastructure ---
+# DB data folders (mapped via volumes)
+.data/
+postgres_data/
+elasticsearch_data/
+zookeeper_data/
+kafka_data/
+
+# OS-specific temporary files
+*.tmp
+*.temp
