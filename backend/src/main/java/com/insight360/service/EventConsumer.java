@@ -18,6 +18,7 @@ public class EventConsumer {
 
     private final CustomerActionRepository customerActionRepository;
     private final ObjectMapper objectMapper;
+    private final SseService sseService;
 
     // In-memory cache holding the latest event per customer (customerId -> CustomerAction) for frontend polling/broadcasting.
     private final Map<Long, CustomerAction> latestEvents = new ConcurrentHashMap<>();
@@ -42,6 +43,9 @@ public class EventConsumer {
                 latestEvents.put(action.getCustomerId(), action);
                 log.debug("Cached latest event in ConcurrentHashMap for customerId: {}", action.getCustomerId());
             }
+
+            // Broadcast the event via Server-Sent Events (SSE) to connected clients
+            sseService.broadcast(savedAction);
         } catch (Exception e) {
             log.error("Failed to deserialize and process Kafka message payload: " + message, e);
         }
